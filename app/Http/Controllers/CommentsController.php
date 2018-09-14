@@ -24,7 +24,7 @@ class CommentsController extends Controller
     {
 
             $comments = Comments::find($request->commentId);
-            $approveVal = $request->approve;
+            $approveVal = $request->input('approved');
             if($approveVal == 'on'){
                 $approveVal = 1;
             }
@@ -33,7 +33,7 @@ class CommentsController extends Controller
                     $approveVal=0;
 
             }
-            $comments->comments=$request->input('comment');
+            $comments->approved=$approveVal;
  
             $comments->save();
 

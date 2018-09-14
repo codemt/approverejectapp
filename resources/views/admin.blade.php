@@ -37,6 +37,7 @@
                                             <form action="{{url('/toggle-approve')}}" method="POST">
                                                 {{ csrf_field() }} 
                                             <input type="checkbox" <?php  if($comment->approved == 1 ) { echo "Checked";} ?> name="approved">
+                                            <input type="hidden" name="commentId" value="{{  $comment->id }}">
                                             <input class="btn btn-primary" type="submit" value="Done">
                                     </form>
                                     

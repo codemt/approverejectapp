@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
 
-    $comments = Comments::all();
+    $comments = Comments::where('approved','1')->get();
     return view('front')->with('comments',$comments);
 });
 
