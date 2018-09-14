@@ -22,7 +22,8 @@
 
                                 <tr> 
                                        <th> Comments  </th>  
-                                       <th> Approval  </th>      
+                                       <th> Status  </th>  
+                                       <th> Approve  </th>     
                                 </tr>
 
                     </thead>
@@ -32,13 +33,14 @@
                             <tr>
 
                                     <td>{{ $comment->comments }}  </td> 
+                                    <td> <label for="approved"  name="approved"> <?php  if($comment->approved == 1 ) { echo "Approved";}   else { echo "Not Approved"; } ?> </label> </td>
                                     <td>
                                         
                                             <form action="{{url('/toggle-approve')}}" method="POST">
                                                 {{ csrf_field() }} 
                                             <input type="checkbox" <?php  if($comment->approved == 1 ) { echo "Checked";} ?> name="approved">
                                             <input type="hidden" name="commentId" value="{{  $comment->id }}">
-                                            <input class="btn btn-primary" type="submit" value="Done">
+                                            <input class="btn btn-primary" type="submit" value="Submit">
                                     </form>
                                     
                                     
